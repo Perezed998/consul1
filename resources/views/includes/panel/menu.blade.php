@@ -3,6 +3,8 @@
 <h6 class="navbar-heading text-muted">Gestion</h6>
 <!-- Navigation -->
 <ul class="navbar-nav">
+
+ {{-- @if(auth()->user()->role == 'admin')--}}
     <li class="nav-item  active ">
       <a class="nav-link  active " href="{{url('/home')}}">
         <i class="ni ni-tv-2 text-danger"></i> Dashboard
@@ -24,6 +26,11 @@
       </a>
     </li>
     <li class="nav-item">
+      <a class="nav-link " href="{{url('/reservarcita')}}">
+        <i class="ni ni-calendar-grid-58 text-blue"></i> Citas medicas
+      </a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link " href="{{url('/sede') }}">
         <i class="ni ni-building text-black"></i> Sedes
       </a>
@@ -38,6 +45,27 @@
         <i class="ni ni-badge text-green"></i> Asistente
       </a>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link " href="{{url('/reservarcita')}}">
+        <i class="ni ni-calendar-grid-58 text-blue"></i> Mis Citas
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link " href="{{route('Horarios.edit', ['id' => auth()->id()])}}">
+        <i class="ni ni-calendar-grid-58 text-blue"></i> Gestionar Horario
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link " href="{{route('Cita.create')}}">
+        <i class="ni ni-calendar-grid-58 text-blue"></i> Gestionar Cita
+      </a>
+    </li>
+
+
     
     <li class="nav-item">
       <a class="nav-link" href="{{route('logout')}}"

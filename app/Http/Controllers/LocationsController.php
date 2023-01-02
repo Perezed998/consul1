@@ -62,7 +62,7 @@ class LocationsController extends Controller
             $locations->description = $request->input('description');
             $$locations->save();
             
-            $notification = 'La especcialidad se a editado correctamente.';
+            $notification = 'La sede se a editado correctamente.';
     
             return redirect('/sede') ->with(compact('notification'));    
         }

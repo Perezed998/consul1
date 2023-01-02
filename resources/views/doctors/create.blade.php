@@ -64,7 +64,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                     </div>
-                    <input class="form-control datepicker" placeholder="Seleccionar Fecha" type="text" value="2020/06/20" data-date-format="yyyy/mm/dd">
+                    <input class="form-control datepicker" placeholder="Seleccionar Fecha" id="fecha_nacimiento" name="fecha_nacimiento" type="text" value="yyyy/mm/dd" data-date-format="yyyy/mm/dd">
                  </div>
                   @if ($errors->has('fecha_nacimiento'))
                   <div class="text-danger"> 
@@ -139,13 +139,13 @@
 
                 <label for="genero">Estatus</label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="0">
+                  <input class="form-check-input" type="radio" name="estatus" id="flexRadioDefault1" value="0">
                   <label class="form-check-label" for="flexRadioDefault1">
                    Inactivo
                   </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked value="1">
+                  <input class="form-check-input" type="radio" name="estatus" id="flexRadioDefault2" checked value="1">
                   <label class="form-check-label" for="flexRadioDefault2">
                    Activo
                   </label>

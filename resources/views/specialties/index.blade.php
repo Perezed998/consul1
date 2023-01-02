@@ -1,5 +1,12 @@
 @extends('layouts.panel')
 
+@section('style')
+    <!--Estilo para las tablas Data Table -->
+    <link href="{{asset('/DataTables/datatables.css')}} " rel="stylesheet" />
+
+@endsection
+
+
 @section('content')
 
       <div class="card shadow">
@@ -22,7 +29,7 @@
       </div>
         <div class="table-responsive">
           <!-- Projects table -->
-          <table class="table align-items-center table-flush">
+          <table id="example" class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
                 <th scope="col">Nombre</th>
@@ -54,5 +61,18 @@
         </div>
       </div>
     
+
+@endsection
+
+@section('scripts')
+    <!--Script para las tablas Data Table -->
+    <script src="{{asset('/DataTables/datatables.js')}} "></script>
+
+    <script>
+      $(document).ready(function () {
+        //inicializar el datatable 
+        $('#example').DataTable();
+      });
+    </script>
 
 @endsection

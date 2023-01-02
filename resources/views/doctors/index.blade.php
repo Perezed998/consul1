@@ -52,7 +52,7 @@
                     {{$doctor->Especialidad->name }}
                   </td>
                   <td>
-                    {{$doctor->sede}}
+                    {{$doctor->locacion->name }}
                   </td>
                 <td>
                   <form action="{{route('Doctor.destroy', ['id' =>$doctor->id]) }}" method="POST">
@@ -60,7 +60,7 @@
                     @method('DELETE')
                     <a href="{{route('Doctor.edit', ['id' =>$doctor->id]) }}" class="btn btn-sm btn-primary">Editar</a>
 
-                    <button type="submit" class="btn btn-sm btn-danger">Eliminar</a>
+                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Quieres borrar este doctor?')">Eliminar</a>
                   
                   </form>
 

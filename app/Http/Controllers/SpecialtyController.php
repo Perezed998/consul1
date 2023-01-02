@@ -32,7 +32,7 @@ class SpecialtyController extends Controller
         $specialty->description = $request->input('description');
         $specialty->save();
         
-        $notification = 'La especialidad se a creaddo correctamente.';
+        $notification = 'La especialidad se a creado correctamente.';
 
         return redirect('/especialidades')->with(compact('notification'));    
     }

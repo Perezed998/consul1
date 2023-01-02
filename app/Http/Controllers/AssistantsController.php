@@ -41,6 +41,8 @@ class AssistantsController extends Controller
             'id' => 'required|digits:8',
             'address' =>'nullable|min:6',
             'phone' => 'required',
+            'fecha_nacimiento'=>'required|date',
+
 
             
         ];
@@ -99,7 +101,9 @@ class AssistantsController extends Controller
             'email' => 'required|email',
             'id' => 'required|digits:8',
             'address' =>'nullable|min:6',
-            'phone' => 'required'
+            'phone' => 'required',
+            'fecha_nacimiento'=>'required|date'
+
         ];
 
         $this->validate($request, $rules);

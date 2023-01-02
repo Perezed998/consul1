@@ -53,7 +53,9 @@ class DoctorController extends Controller
             'genero'=>'required',
             'estatus'=>'required',
             'sanidad'=>'required',
-            'numcolegio'=>'required'            
+            'numcolegio'=>'required' ,
+            'fecha_nacimiento'=>'required|date'
+           
 
 
         ];
@@ -61,7 +63,7 @@ class DoctorController extends Controller
         $this->validate($request , $rules);
 
         User::create(
-            $request->only('name','email', 'id', 'address','phone','especialidad','sede','genero','estatus','sanidad','numcolegio')
+            $request->only('name','email', 'id', 'address','phone','especialidad','sede','genero','estatus','sanidad','numcolegio','fecha_nacimiento')
             +[
                 'role' =>'doctor',
                 'password' => bcrypt($request->input('password' ))
@@ -120,7 +122,9 @@ class DoctorController extends Controller
                 'genero'=>'required',
                 'estatus'=>'required',
                 'sanidad'=>'required',
-                'numcolegio'=>'required'
+                'numcolegio'=>'required',
+                'fecha_nacimiento'=>'required|date'
+
 
                 
             ];
@@ -129,7 +133,7 @@ class DoctorController extends Controller
             $user = User::doctors()->findOrFail($id);    
 
             
-            $data = $request->only('name','email', 'id', 'address','phone','especialidad','sede','genero','estatus','sanidad','numcolegio');
+            $data = $request->only('name','email', 'id', 'address','phone','especialidad','sede','genero','estatus','sanidad','numcolegio','fecha_nacimiento');
             $password = $request->input('password');
 
             if ($password)

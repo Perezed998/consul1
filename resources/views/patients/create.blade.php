@@ -43,7 +43,7 @@
                       <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                       </div>
-                      <input class="form-control datepicker" placeholder="Seleccionar Fecha" type="text" value="2020/06/20" data-date-format="yyyy/mm/dd">
+                      <input class="form-control datepicker" placeholder="Seleccionar Fecha" id="fecha_nacimiento" name="fecha_nacimiento" type="text" value="yyyy/mm/dd" data-date-format="yyyy/mm/dd">
                    </div>
                     @if ($errors->has('fecha_nacimiento'))
                     <div class="text-danger"> 

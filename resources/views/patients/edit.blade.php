@@ -37,21 +37,20 @@
                     @endif
                </div>
 
-                <div class="form-group">
-                    <label for="fecha_nacimiento">Fecha de Nacimiento</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                      </div>
-                      <input class="form-control datepicker" placeholder="Seleccionar Fecha" type="text" value="{{old('fecha_nacimiento' , $paciente->fecha_nacimiento)}}" data-date-format="yyyy/mm/dd">
-                   </div>
-                    @if ($errors->has('fecha_nacimiento'))
-                    <div class="text-danger"> 
-                      {{ $errors->first('fecha_nacimiento') }}
-                    </div>
-                    @endif
-                </div>  
-
+               <div class="form-group">
+                <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                  </div>
+                  <input class="form-control datepicker" placeholder="Seleccionar Fecha" id="fecha_nacimiento" name="fecha_nacimiento" type="text" value="yyyy/mm/dd" data-date-format="yyyy/mm/dd">
+               </div>
+                @if ($errors->has('fecha_nacimiento'))
+                <div class="text-danger"> 
+                  {{ $errors->first('fecha_nacimiento') }}
+                </div>
+                @endif
+            </div>  
                   
                 <div class="form-group">
                     <label for="id">Cedula</label>

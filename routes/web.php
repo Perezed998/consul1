@@ -1,6 +1,6 @@
 <?php
 
-use GuzzleHttp\Middleware;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -95,3 +95,40 @@ Route::group(['prefix' => 'asistente', 'middleware' => ['auth']], function () {
     Route::put('/edit/{id}', 'App\Http\Controllers\AssistantsController@update')->name('Asistente.update');
     Route::delete('/destroy/{id}', 'App\Http\Controllers\AssistantsController@destroy')->name('Asistente.destroy');
 });
+
+//Ruta Horario
+
+Route::group(['prefix' => 'horario', 'middleware' => ['auth']], function () {
+    Route::get('/edit/{id}', 'App\Http\Controllers\Doctor\TimeController@edit')->name('Horarios.edit');
+    Route::post('/edit/{id}', 'App\Http\Controllers\Doctor\TimeController@store')->name('Horarios.store');
+});
+
+//Ruta Recervar cita 
+
+Route::group(['prefix' => 'reservarcita', 'middleware' => ['auth']], function () {
+    Route::get('/create', 'App\Http\Controllers\AppointmentController@create')->name('Cita.create');
+    Route::post('/create', 'App\Http\Controllers\AppointmentController@store')->name('Cita.store');
+    Route::get('/', 'App\Http\Controllers\AppointmentController@index')->name('Cita.index');
+    Route::get('/show/{appointment}', 'App\Http\Controllers\AppointmentController@show')->name('Cita.show');
+    Route::post('/cancel/{appointment}', 'App\Http\Controllers\AppointmentController@cancel')->name('Cita.cancel');
+    Route::post('/confirm/{appointment}', 'App\Http\Controllers\AppointmentController@cancel')->name('Cita.confirm');
+    Route::get('/cancel/{appointment}', 'App\Http\Controllers\AppointmentController@formcancel')->name('Cita.formcancel');
+
+
+
+
+});
+
+Route::group(['namespace' => 'Api', 'middleware' => ['auth']], function () {
+    //JSON
+    Route::get('/especialidades/{specialty}/medicos', [App\Http\Controllers\Api\SpecialtyController::class ,'doctors']);
+    Route::get('/horarios/horas', [App\Http\Controllers\Api\HorarioController::class ,'hours']);
+
+});
+
+
+// 
+
+
+
+

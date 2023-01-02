@@ -39,10 +39,11 @@ class PatientController extends Controller
             'id' => 'required|digits:10',
             'address' =>'nullable|min:6',
             'phone' => 'required',
-            'fecha_nacimiento'=>'required|date_format:Y-m-d'
+            'fecha_nacimiento'=>'required|date'
 
             
         ];
+
 
         $this->validate($request , $rules);
 
